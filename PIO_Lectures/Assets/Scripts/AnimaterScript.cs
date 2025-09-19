@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AnimaterScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public InputActionProperty grabAction;
+    public InputActionProperty triggerAction;
 
-    // Update is called once per frame
+    public Animator myAnimator;
+
+
     void Update()
     {
-        
+        float grabValue = grabAction.action.ReadValue<float>();
+        myAnimator.SetFloat("grab", grabValue);
+
+        float triggerValue = triggerAction.action.ReadValue<float>();
+        myAnimator.SetFloat("trigger",triggerValue);
     }
 }
