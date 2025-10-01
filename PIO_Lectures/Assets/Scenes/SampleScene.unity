@@ -1470,6 +1470,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6921d4f9ca32a64992af97435b6a8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportActivate:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Teleport Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: a6dc05ea-4ba3-44b2-8a2d-0a85716298d5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightRay: {fileID: 1485553385}
 --- !u!1 &1233184682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1701,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2761784063978902506, guid: c1800acf6366418a9b5f610249000331, type: 3}
   m_PrefabInstance: {fileID: 1485553383}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485553385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+  m_PrefabInstance: {fileID: 1485553383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1767335222
 GameObject:
   m_ObjectHideFlags: 0
