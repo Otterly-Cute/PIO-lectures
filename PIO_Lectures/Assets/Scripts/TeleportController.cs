@@ -23,12 +23,13 @@ public class TeleportController : MonoBehaviour
 
     private void ActionCanceled(InputAction.CallbackContext obj)
     {
+        StartCoroutine(SkipOneFrame());
+    }
+
+    System.Collections.IEnumerator SkipOneFrame()
+    {
+        yield return null; // Skip one frame
         rightRay.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
