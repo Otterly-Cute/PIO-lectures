@@ -16,33 +16,43 @@ public class CatActivate : MonoBehaviour
     public Material blue;
     public Material green;
 
-    public bool britshActivated = false;
-    public bool angoraActivated = false;
-    public bool ragdollActivated = false;
+    public bool britishActivated;
+    public bool angoraActivated;
+    public bool ragdollActivated;
 
     public AudioSource Bmeow;
     public AudioSource Ameow;
     public AudioSource Rmeow;
 
-    public AudioSource purr;
+    //public AudioSource purr;
 
-    private void OnCollisionEnter(Collision collision)
+
+
+    private void Start()
     {
-        if (collision.gameObject.tag == "Player")
+        britishActivated = false;
+        angoraActivated = false;
+        ragdollActivated = false;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (this.gameObject.tag == "Player")
         {
-            if (this.gameObject == britishCat)
+            if (other.gameObject == britishCat)
             {
-                if (britshActivated == false)
+                Debug.Log("British collision");
+                if (britishActivated == false)
                 {
                     ActivateGlow(purple);
                     Bmeow.Play();
                     britishParticle.SetActive(true);
-                    britshActivated=true;
+                    britishActivated=true;
                     CheckActivation();
                 }
             }
-            else if (this.gameObject == angoraCat)
+            else if (other.gameObject == angoraCat)
             {
+                Debug.Log("Angora collision");
                 if (angoraActivated == false)
                 {
                     ActivateGlow(blue);
@@ -52,8 +62,9 @@ public class CatActivate : MonoBehaviour
                     CheckActivation();
                 }
             }
-            else if (this.gameObject == ragdollCat)
+            else if (other.gameObject == ragdollCat)
             {
+                Debug.Log("Ragdoll collision");
                 if (ragdollActivated == false)
                 {
                     ActivateGlow(green);
@@ -73,7 +84,7 @@ public class CatActivate : MonoBehaviour
 
     public void CheckActivation()
     {
-        if (britshActivated == true && angoraActivated == true && ragdollActivated == true)
+        if (britishActivated == true && angoraActivated == true && ragdollActivated == true)
         {
             ActivateSummoning();
         }
@@ -82,6 +93,6 @@ public class CatActivate : MonoBehaviour
     public void ActivateSummoning()
     {
         summoningCircle.SetActive(true);
-        purr.Play();
+        //purr.Play();
     }
 }
