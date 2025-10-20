@@ -1,16 +1,34 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Interactables : MonoBehaviour
 {
-    public GameObject interactables;
-    public GameObject witchCat;
+    public GameObject ParticleSystem;
+    public GameObject ghost;
+    private IEnumerator hit;
+
+    private void Start()
+    {
+        hit = WaitAndDestroy(3.0f);
+    }
 
 
-    IEnumerator WaitAndSpawn(float waitTime)
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Interactable")
+        {
+            Debug.Log("trigger");
+            ParticleSystem.SetActive(true);
+            ghost.SetActive(false);
+            StartCoroutine(hit);
+        }
+    }
+
+    IEnumerator WaitAndDestroy(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        interactables.SetActive(true);
+        Destroy(this);
     }
 
 
