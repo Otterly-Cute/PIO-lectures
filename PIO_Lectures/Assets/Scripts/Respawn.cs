@@ -6,11 +6,12 @@ public class Respawn : MonoBehaviour
     private Animator ani;
     private Vector3 startPos;
     public GameObject particles;
+    public GameObject fish;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        ani = GetComponent<Animator>();
+        ani = fish.GetComponent<Animator>();
     }
 
     void Start()
@@ -23,7 +24,9 @@ public class Respawn : MonoBehaviour
         if (other.gameObject.name == "RespawnCube")
         {
             rb.useGravity = false;
-            ani.StartPlayback();
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            ani.enabled = true;
             particles.SetActive(true);
             transform.position = startPos;
         }
