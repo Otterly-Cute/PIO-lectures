@@ -7,6 +7,8 @@ public class Interactables : MonoBehaviour
     public GameObject ParticleSystem;
     public GameObject ghost;
     private IEnumerator hit;
+    public AudioSource purr;
+    public AudioSource meow;
 
     private void Start()
     {
@@ -19,6 +21,8 @@ public class Interactables : MonoBehaviour
         if (other.gameObject.tag == "Interactable")
         {
             Debug.Log("trigger");
+            purr.Stop();
+            meow.Play();
             ParticleSystem.SetActive(true);
             ghost.SetActive(false);
             StartCoroutine(hit);
