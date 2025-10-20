@@ -95,4 +95,8 @@ public class CatActivate : MonoBehaviour
         summoningCircle.SetActive(true);
         //purr.Play();
     }
+
+   
+
+
 }
